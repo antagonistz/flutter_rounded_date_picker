@@ -304,12 +304,12 @@ class FlutterRoundedDayPicker extends StatelessWidget {
         if (isSelectedDay) {
           // The selected day gets a circle background highlight, and a contrasting text color.
           itemStyle = style?.textStyleDayOnCalendarSelected ??
-              themeData.accentTextTheme.bodyText1!.copyWith(
+              themeData.textTheme.bodyLarge!.copyWith(
                 fontFamily: fontFamily,
               );
           decoration = style?.decorationDateSelected ??
               BoxDecoration(
-                color: themeData.accentColor,
+                color: themeData.colorScheme.secondary,
                 shape: BoxShape.circle,
               );
         } else if (disabled) {
@@ -321,8 +321,8 @@ class FlutterRoundedDayPicker extends StatelessWidget {
         } else if (isCurrentDay) {
           // The current day gets a different text color.
           itemStyle = style?.textStyleCurrentDayOnCalendar ??
-              themeData.textTheme.bodyText1!.copyWith(
-                color: themeData.accentColor,
+              themeData.textTheme.bodyLarge!.copyWith(
+                color: themeData.colorScheme.secondary,
                 fontFamily: fontFamily,
               );
         }
@@ -405,13 +405,13 @@ class FlutterRoundedDayPicker extends StatelessWidget {
             decoration: BoxDecoration(
                 color: style?.backgroundHeaderMonth, borderRadius: orientation == Orientation.landscape ? BorderRadius.only(topRight: Radius.circular(borderRadius)) : null),
             padding: style?.paddingMonthHeader,
-//            height: _kDayPickerRowHeight,
+            height: _kDayPickerRowHeight,
             child: Center(
               child: ExcludeSemantics(
                 child: Text(
                   monthYearHeader,
                   style: style?.textStyleMonthYearHeader ??
-                      themeData.textTheme.subtitle1!.copyWith(
+                      themeData.textTheme.titleMedium!.copyWith(
                         fontFamily: fontFamily,
                       ),
                 ),
